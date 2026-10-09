@@ -35,9 +35,9 @@
             const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             window.addEventListener("load", async function() {
                 await streak();
-                //milliseconds();
-                //seconds();
-                //minutes();
+                mil();
+                //sec();
+                //min();
             });
             function streak() {
                 var streak = Number(window.localStorage.getItem("visittimeStreak"));
@@ -49,17 +49,22 @@
                 document.getElementById("streak").innerText = streak;
                 window.localStorage.setItem("visittimeStreak", streak);
             }
-            async function milliseconds() {
-                var pass;
+            async function mil() {
+                while (true) {
+                    //await wait(1);
+                    let cur = document.getElementById("mil").innerText;
+                    Number(cur);
+                    document.getElementById("mil").innerText = cur;
+                }
             }
         </script>
     </head>
     <body>
         <div class="wrapper">
             <h1>Visit Time</h1>
-            <h2><span id="milliseconds">314159</span> milliseconds</h2>
-            <h2><span id="seconds">314</span> seconds</h2>
-            <h2><span id="minutes">3</span> minutes</h2>
+            <h2><span id="mil"></span> milliseconds</h2>
+            <h2><span id="seconds"></span> seconds</h2>
+            <h2><span id="min"></span> minutes</h2>
             <h2>you've visited this page <span id="streak"></span> times</h2>
         </div>
     </body>
